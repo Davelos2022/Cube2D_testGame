@@ -27,8 +27,6 @@ public static class LoadSave
         jsonData = new JsonData { Level = level, Volume = volume, IndexPosition = indexPosition };
 
         string json = JsonUtility.ToJson(jsonData);
-
-
         File.WriteAllText(path + nameFile, json);
     }
 }
