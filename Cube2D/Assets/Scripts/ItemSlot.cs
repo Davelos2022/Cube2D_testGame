@@ -13,6 +13,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null && transform.childCount == 0)
         {
+            if (Cell == TypeCells.Regular—ell && eventData.pointerDrag.transform.CompareTag("Cube"))
+                return;
+
             eventData.pointerDrag.transform.SetParent(transform, true);
             eventData.pointerDrag.transform.position = transform.position;
 
