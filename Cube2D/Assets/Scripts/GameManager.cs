@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame()
     {
-        SaveGame();
         Application.Quit();
     }
 
@@ -108,11 +107,6 @@ public class GameManager : MonoBehaviour
         yield break;
     }
     private void OnDisable()
-    {
-        SaveGame();
-    }
-
-    public void SaveGame()
     {
         LoadSave.SaveGame(_levelGame, audioManager.VolumeSider.value, cellsTable.IndexPositionsInTable);
     }
