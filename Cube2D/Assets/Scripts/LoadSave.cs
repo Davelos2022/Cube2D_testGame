@@ -4,22 +4,19 @@ using System.IO;
 
 public static class LoadSave
 {
-    public static string path = Application.persistentDataPath;
-    public static string nameFile = "Save.json";
+    public static string path = Application.persistentDataPath + ".json";
     public static JsonData jsonData;
 
-    public static bool CheckFileAndLoad()
+    public static void LoadGame()
     {
-        string filePath = path + nameFile;
-
-        if (File.Exists(filePath))
+        if (File.Exists(path))
         {
-            string json = File.ReadAllText(filePath);
+            string json = File.ReadAllText(path);
             jsonData = JsonUtility.FromJson<JsonData>(json);
-            return true;
+
         }
         else
-            return false;
+            return;
     }
 
     public static void SaveGame(int level, float volume, List<int> indexPosition)
@@ -27,6 +24,6 @@ public static class LoadSave
         jsonData = new JsonData { Level = level, Volume = volume, IndexPosition = indexPosition };
 
         string json = JsonUtility.ToJson(jsonData);
-        File.WriteAllText(path + nameFile, json);
+        File.WriteAllText(path, json);
     }
 }

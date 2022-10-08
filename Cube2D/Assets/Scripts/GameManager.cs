@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
 
-        if (LoadSave.CheckFileAndLoad())
+        LoadSave.LoadGame();
+
+        if (LoadSave.jsonData != null)
         {
             _levelGame = LoadSave.jsonData.Level;
             audioManager.VolumeSider.value = LoadSave.jsonData.Volume;
