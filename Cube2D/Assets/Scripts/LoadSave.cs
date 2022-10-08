@@ -13,7 +13,6 @@ public static class LoadSave
         {
             string json = File.ReadAllText(path);
             jsonData = JsonUtility.FromJson<JsonData>(json);
-
         }
         else
             return;
